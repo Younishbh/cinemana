@@ -1,0 +1,185 @@
+// Database - قاعدة البيانات
+const contentData = [
+    // Movies - الأفلام
+    {
+        id: 1,
+        title: "The Last Kingdom",
+        type: "movie",
+        year: 2023,
+        rating: 8.5,
+        image: "🎬",
+        genre: "دراما",
+        duration: "148 دقيقة",
+        description: "فيلم درامي ملحمي يحكي قصة الصراع بين القوى العظمى في العصور الوسطى.",
+        director: "كريستوفر نولان",
+        cast: "بيل جيب، آن هاثاواي، مات ديمون",
+        trending: true
+    },
+    {
+        id: 2,
+        title: "Ocean's Mystery",
+        type: "movie",
+        year: 2023,
+        rating: 7.8,
+        image: "🌊",
+        genre: "مغامرة",
+        duration: "132 دقيقة",
+        description: "مغامرة مشوقة في أعماق المحيط بحثاً عن كنز مفقود منذ قرون.",
+        director: "جيمس كاميرون",
+        cast: "جيسون مومoa، ديزي ريدلي",
+        trending: true
+    },
+    {
+        id: 3,
+        title: "Space Explorer",
+        type: "movie",
+        year: 2024,
+        rating: 9.2,
+        image: "🚀",
+        genre: "خيال علمي",
+        duration: "165 دقيقة",
+        description: "رحلة استكشافية خارج الكواكب في بحثهم عن حياة جديدة في الفضاء.",
+        director: "ستيفن سبيلبرج",
+        cast: "تيم روتز، زندايا",
+        trending: true
+    },
+    {
+        id: 4,
+        title: "Love in Paris",
+        type: "movie",
+        year: 2023,
+        rating: 7.5,
+        image: "💕",
+        genre: "رومانسي",
+        duration: "118 دقيقة",
+        description: "قصة حب رقيقة تدور أحداثها في شوارع باريس الخلابة.",
+        director: "فرانسوا أوزون",
+        cast: "تيموثي شالاميه، فلورانس بوغ",
+        trending: false
+    },
+    {
+        id: 5,
+        title: "City Shadows",
+        type: "movie",
+        year: 2024,
+        rating: 8.7,
+        image: "🌙",
+        genre: "إثارة",
+        duration: "142 دقيقة",
+        description: "فيلم إثارة مظلم يكشف أسرار المدينة الخطرة والجرائم المخبأة.",
+        director: "ديفيد فينشر",
+        cast: "جيمس ماكفوي، سايرسي رونان",
+        trending: true
+    },
+    {
+        id: 6,
+        title: "The Detective",
+        type: "movie",
+        year: 2023,
+        rating: 8.3,
+        image: "🔍",
+        genre: "غموض",
+        duration: "155 دقيقة",
+        description: "قصة بوليسية معقدة عن محقق يحاول حل أغمض القضايا الجنائية.",
+        director: "رونالد إمميريش",
+        cast: "روبرت باتنسون، سكارليت جوهانسون",
+        trending: false
+    },
+
+    // Series - المسلسلات
+    {
+        id: 7,
+        title: "Royal Crown",
+        type: "series",
+        year: 2024,
+        rating: 9.0,
+        image: "👑",
+        genre: "دراما تاريخية",
+        seasons: 3,
+        episodes: 24,
+        description: "مسلسل ملحمي عن أسرة ملكية تحكم إمبراطورية عظيمة وتواجه التحديات.",
+        director: "بيتر مورجان",
+        cast: "إيميليا كلارك، بيتر دينكلاج",
+        trending: true
+    },
+    {
+        id: 8,
+        title: "Tech Genius",
+        type: "series",
+        year: 2023,
+        rating: 8.5,
+        image: "💻",
+        genre: "خيال علمي",
+        seasons: 2,
+        episodes: 16,
+        description: "مسلسل يتابع حياة عبقري تكنولوجيا يغير مسار الحضارة البشرية.",
+        director: "آرون سوركين",
+        cast: "جيسي إيزنبرج، كايت كينسي",
+        trending: true
+    },
+    {
+        id: 9,
+        title: "Detective Squad",
+        type: "series",
+        year: 2023,
+        rating: 8.8,
+        image: "🚔",
+        genre: "بوليسي",
+        seasons: 4,
+        episodes: 48,
+        description: "مسلسل درامي يتبع فريق من المحققين في حل أصعب القضايا الجنائية.",
+        director: "جيري برتشاكر",
+        cast: "آندي سامبرج، لولو موريز",
+        trending: true
+    },
+    {
+        id: 10,
+        title: "Medical Heroes",
+        type: "series",
+        year: 2024,
+        rating: 8.2,
+        image: "⚕️",
+        genre: "طبي درامي",
+        seasons: 5,
+        episodes: 60,
+        description: "مسلسل يحكي قصص الأطباء والممرضين البطاليين في مستشفى كبير.",
+        director: "جيرت جان غليمويت",
+        cast: "إلين بومبيو، باتريك ديمبسي",
+        trending: false
+    },
+    {
+        id: 11,
+        title: "Fantasy Realm",
+        type: "series",
+        year: 2023,
+        rating: 8.9,
+        image: "🐉",
+        genre: "خيال فنطازي",
+        seasons: 4,
+        episodes: 52,
+        description: "مسلسل خيال فنطازي ملحمي عن حرب العروش والسحر والمخلوقات الأسطورية.",
+        director: "ديفيد بينيوف",
+        cast: "إيميليا كلارك، جون سنو",
+        trending: true
+    },
+    {
+        id: 12,
+        title: "Comedy Hour",
+        type: "series",
+        year: 2024,
+        rating: 7.9,
+        image: "😂",
+        genre: "كوميديا",
+        seasons: 2,
+        episodes: 20,
+        description: "مسلسل كوميدي فكاهي عن مجموعة من الأصدقاء يعيشون معاً في شقة.",
+        director: "كريج توماس",
+        cast: "جوش راد، أبراهام لينكولن",
+        trending: false
+    }
+];
+
+// تصدير البيانات
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = contentData;
+}
